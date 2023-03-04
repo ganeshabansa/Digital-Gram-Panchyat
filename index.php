@@ -107,7 +107,7 @@ if( strlen($_SESSION['login']) > 0 ) {
                         <img src="./img/bell.JPG" alt="Notice Icon">
                     </div>
                     <div class="notice-panel-text text-center">
-                        <h3>Notice</h3>
+                        <h3>Notices</h3>
                     </div>
                 </div>
                 <div class="notices text-center">
