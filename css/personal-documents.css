@@ -1,0 +1,115 @@
+.container1 {
+  border: 1px solid black;
+  width: 1000px;
+  margin: auto;
+}
+
+.registration {
+  justify-content: center;
+  text-align: center;
+  border: 1px solid rgb(223, 227, 252);
+  background-color: rgb(236, 231, 251);
+  border-radius: 20px;
+  padding: 5px;
+}
+
+.form {
+  height: 1500px;
+  margin: auto;
+}
+
+.ebtn {
+  background-color: rgb(236, 236, 250);
+  border: 1px solid rgb(185, 185, 246);
+}
+
+.form-group.required .control-label:after {
+  content: "*";
+  color: red;
+}
+
+.line {
+  border: 2px solid rgb(136, 136, 246);
+  border-radius: 20px;
+}
+
+.question {
+  margin: 20px;
+}
+
+.form-check {
+  margin: 10px;
+}
+
+.btn {
+  font-size: 20px;
+  margin: auto;
+  align-items: center;
+}
+
+.file {
+  margin: 20px;
+}
+
+.input-file {
+  margin: 10px;
+}
+
+.farm-info {
+  border: 1px solid rgb(246, 246, 248);
+  background-color: rgb(250, 250, 253);
+}
+
+.aadhar-info {
+  margin-top: 20px;
+  border: 1px solid rgb(246, 246, 248);
+  background-color: rgb(250, 250, 253);
+}
+
+.input-file2 {
+  margin-top: 5px;
+}
+
+.aadhar {
+  margin: 5px;
+}
+
+.caste-info {
+  margin-top: 20px;
+  border: 1px solid rgb(246, 246, 248);
+  background-color: rgb(250, 250, 253);
+}
+
+.domicile-info {
+  margin-top: 20px;
+  border: 1px solid rgb(246, 246, 248);
+  background-color: rgb(250, 250, 253);
+}
+
+.bank-info {
+  margin-top: 20px;
+  border: 1px solid rgb(246, 246, 248);
+  background-color: rgb(250, 250, 253);
+}
+
+.brk {
+  border: 1px solid rgb(193, 193, 246);
+}
+
+.agreement {
+  font-size: 18px;
+  padding: 15px;
+}
+
+#back {
+  float: left;
+}
+
+#continue {
+  float: right;
+}
+
+.footer {
+  margin: 5px;
+  margin-top: 30px;
+}

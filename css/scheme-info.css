@@ -1,0 +1,49 @@
+.section {
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.contain {
+  border: 1px solid black;
+  width: 800px;
+  height: auto;
+  margin: auto;
+}
+
+.scheme-head {
+  background-color: #9ebffb;
+  text-align: center;
+  padding: 5px;
+  border-bottom: 1px solid black;
+}
+
+.doc-head {
+  margin: 15px;
+  margin-top: 20px;
+}
+
+.doc-list li {
+  font-size: 18px;
+  line-height: 35px;
+}
+
+.doc-list ol {
+  margin: 10px;
+}
+
+.checkbox {
+  margin: 20px;
+  font-size: 18px;
+}
+
+.buttons {
+  margin: 30px;
+}
+
+.buttons a {
+  font-size: 18px;
+}
+
+.submit {
+  float: right;
+}
