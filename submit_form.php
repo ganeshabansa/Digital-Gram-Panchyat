@@ -89,7 +89,9 @@ if ( isset( $_POST['name'] ) ) {
     // } else {
     //   echo '<script>alert("Data not inserted")</script>';
     // }
+
 }
+// $displayPopUp = true;
 
 ?>
 
@@ -103,6 +105,7 @@ if ( isset( $_POST['name'] ) ) {
     <!-- CSS Links -->
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 	<link rel="stylesheet" href="css/header-footer.css">
+	<link rel="stylesheet" href="css/submit_form.css">
 
 	<title>Confirmation Page</title>
 </head>
@@ -110,7 +113,59 @@ if ( isset( $_POST['name'] ) ) {
 <body>
     <?php include('include/header.php');?>
 
-    <!-- You Code Goes Here -->
+    
+    <div class="container confirmation-page-body">
+        
+        <?php if ( $displayPopUp ) { ?> <!-- Success Modal -->
+            <div class="popup" id="success">
+            <div class="popup-content">
+                <div class="imgbox">
+                    <img src="img/checked.png" alt="" class="img">
+                </div>
+                <div class="title">
+                    <h3>Success!</h3>
+                </div>
+                <p class="para">Your application has been successfully submitted</p>
+                <br>
+                <div class="success-message">
+                    <p class="para">Thanks you for submitting form. To keep a track of your application use below Tracking ID</p>
+                    <b><p class="track-id"> Tracking ID: <?= $trackingId ? $trackingId : 'BGA789456123659856' ?> </p></b>
+                </div>
+                <form action="">
+                    <button class="button" id="s_button">View Application</button>
+                </form>
+            </div>
+            </div>
+        <?php } else { ?> <!-- Failure Modal -->    
+            <div class="popup" id="error">
+            <div class="popup-content">
+                <div class="imgbox">
+                    <img src="img/cancel.png" alt="" class="img">
+                </div>
+                <div class="title">
+                    <h3>Sorry :(</h3>
+                </div>
+                <p class="para">Something went wrong. Please try again!</p>
+                <br>
+                <div class="success-message">
+                    <p class="para">Please fill your application again with correct details.</p>
+                    <!-- <div class="reasons text-center">
+                        <ul>
+                            <li>Check your Internet</li>
+                            <li>Fill correct details</li>
+                        </ul>
+                    </div> -->
+                </div>
+                <br>
+                <form action="index.php">
+                    <button class="button" id="e_button">TRY AGAIN</button>
+                </form>
+            </div>
+            </div>
+        <?php }  ?>
+
+    </div>
+    
     
 	<?php include('include/footer.php');?>
 
