@@ -130,6 +130,7 @@ if( strlen($_SESSION['login']) > 0 ) {
                     </div>
 
                     <input type="hidden" name="name" value="<?= $_GET['schemeName']?>">
+                    
                     <?php 
                     if ( !empty( $_GET['schemeName'] )  ) { ?>
                         <a href="./<?= $_GET['schemeName']?>.php" id="back" class="btn btn-primary">Back</a>
