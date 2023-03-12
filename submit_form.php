@@ -15,7 +15,7 @@ if( strlen($_SESSION['login']) > 0 ) {
 // print_r($_FILES);
 // echo '</pre>';
 
-/*
+// /*
 // Fetch ALL The Documents
 if ( isset($_FILES["benified_file"]) ) {
     $temp = $_FILES["benified_file"]["tmp_name"];
@@ -84,11 +84,13 @@ if ( isset( $_POST['name'] ) ) {
     
     $query = "insert into individual_farms (tracking_number, Name, email, phone, address, city, pin, gender, age, village, gname, area, inline, benified_file, adhar_no, adhar_file, username, certno, cast_certfile, uname, cr_no, domicile_cert, accno, ifsc, branch, passbook_file, applied_date) values ( '$trackingId', '$name', '$email', '$phone', '$address', '$city','$pincode', '$gender', '$age', '$village', '$gn', '$area', '$in', '$pathOfBonafied', '$addharNumber' ,'$pathOfAddhar', '$username', '$cno' ,'$pathOfCastCertificate' , '$uname', '$crno', '$pathOfDomicile', '$accountNumber', '$bankIFSC', '$branch', '$pathOfPassbook', '$applied_date')";
 
-    // if ( mysqli_query( $con , $query ) ) {
+    if ( mysqli_query( $con , $query ) ) {
     //   echo '<script>alert("Data inserted successfully !")</script>';
-    // } else {
+        $displayPopUp = true;
+    } else {
+        $displayPopUp = false;
     //   echo '<script>alert("Data not inserted")</script>';
-    // }
+    }
 
 }
 // $displayPopUp = true;
