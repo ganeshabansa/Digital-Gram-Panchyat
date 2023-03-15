@@ -48,137 +48,134 @@ if( strlen($_SESSION['login']) > 0 ) {
         </p>
     </header>
 
-    <div id="center">
+    <div class="container" id="center">
         <div id="contentbox">
             <div id="contentbox">
+
             <?php 
+            include("include/config.php");
+            $email = $_SESSION['email'];
             
-            $sql = "SELECT * FROM member where mem_id = $loggedin_id";
+            $data = mysqli_query( $con, "SELECT * FROM registration WHERE email='$email'" );
+            $rows = mysqli_fetch_array( $data );
             
-            while ( $rows = mysqli_fetch_array( $result ) ) { ?>
+            // var_dump( $rows );
+            
+            if ( $rows > 0 ) { ?>
                 <div id="signup">
                     <div id="signup-st">
                         <form action="./execute.php" method="get" id="signin" id="reg">
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
                                 <div class="panel panel-info">
+                                    
                                     <div class="panel-heading" style="height: 45px;">
-                                        <h3 style="margin: 0px;">Welcome <?php echo $loggedin_session; ?>,
-                                        </h3>
+                                        <h3 style="margin: 0px;">Welcome <?php echo $_SESSION['name'] ?>, </h3>
                                     </div>
-                                    <div id="signup">
-                                            <div id="reg-head" class="headrg" style="font-size: 16px; margin: 5px;">Your
-                                                Profile</div>
-                                            <div class="panel-body">
-                                                <div class="row">
-                                                    <div class="col-md-3 col-lg-3 "> <img alt="User Pic"
-                                                            src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png"
-                                                            class="img-circle img-responsive"> </div>
-                                                    <div class=" col-md-9 col-lg-9 ">
-                                                        <table class="table table-user-information">
-                                                            <tbody>
-                                                                <tr id="lg-1">
-                                                                    <td class="tl-1">
-                                                                        <div style="text-align: left;" id=tb-name>Reg
-                                                                            id:</div>
-                                                                    </td>
-                                                                    <td class="tl-4">
-                                                                        <?php echo $rows['mem_id']; ?>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr id="lg-1">
-                                                                    <td class="tl-1">
-                                                                        <div style="text-align:left;" id=tb-name>
-                                                                            Username:</div>
-                                                                    </td>
-                                                                    <td class="tl-4">
-                                                                        <?php echo $rows['ename']; ?>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr id="lg-1">
-                                                                    <td class="tl-1">
-                                                                        <div style="text-align:left;" id=tb-name>Email:
-                                                                        </div>
-                                                                    </td>
-                                                                    <td class="tl-4">
-                                                                        <?php echo $rows['em']; ?>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr id="lg-1">
-                                                                    <td class="tl-1">
-                                                                        <div style="text-align:left;" id=tb-name>
-                                                                            Address:</div>
-                                                                    </td>
-                                                                    <td class="tl-4">
-                                                                        <?php echo $rows['addr']; ?>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr id="lg-1">
-                                                                    <td class="tl-1">
-                                                                        <div style="text-align:left;" id=tb-name>City:
-                                                                        </div>
-                                                                    </td>
-                                                                    <td class="tl-4">
-                                                                        <?php echo $rows['c']; ?>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr id="lg-1">
-                                                                    <td class="tl-1">
-                                                                        <div style="text-align:left;" id=tb-name>State:
-                                                                        </div>
-                                                                    </td>
-                                                                    <td class="tl-4">
-                                                                        <?php echo $rows['s']; ?>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr id="lg-1">
-                                                                    <td class="tl-1">
-                                                                        <div style="text-align:left;" id=tb-name>
-                                                                            Country:</div>
-                                                                    </td>
-                                                                    <td class="tl-4">
-                                                                        <?php echo $rows['count']; ?>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr id="lg-1">
-                                                                    <td class="tl-1">
-                                                                        <div style="text-align:left;" id=tb-name>Pin:
-                                                                        </div>
-                                                                    </td>
-                                                                    <td class="tl-4">
-                                                                        <?php echo $rows['pi']; ?>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
 
-                                                        <a href="./logout.php" class="btn btn-primary">Logout</a>
-                                                        <a href="./deleteac.php" class="btn btn-primary">Delete Account</a>
-                                                    </div>
+                                    <div id="signup">
+                                        <div id="reg-head" class="headrg" style="font-size: 16px; margin: 5px;">Your Profile</div>
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <!-- User Profile Picture -->
+                                                <!-- <div class="col-md-3 col-lg-3 "> 
+                                                    <img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive"> 
+                                                </div> -->
+
+                                                <div class=" col-md-12 col-lg-12 ">
+                                                    <table class="table table-user-information">
+                                                        <tbody>
+                                                            <tr id="lg-1">
+                                                                <td class="tl-1">
+                                                                    <div style="text-align: left;" id=tb-name>Reg id:</div>
+                                                                </td>
+                                                                <td class="tl-4">
+                                                                    <?php echo $rows['EmpName']; ?>
+                                                                </td>
+                                                            </tr>
+                                                            <tr id="lg-1">
+                                                                <td class="tl-1">
+                                                                    <div style="text-align:left;" id=tb-name> Username:</div>
+                                                                </td>
+                                                                <td class="tl-4">
+                                                                    <?php echo $rows['EmpName']; ?>
+                                                                </td>
+                                                            </tr>
+                                                            <tr id="lg-1">
+                                                                <td class="tl-1">
+                                                                    <div style="text-align:left;" id=tb-name>Email: </div>
+                                                                </td>
+                                                                <td class="tl-4">
+                                                                    <?php echo $rows['email']; ?>
+                                                                </td>
+                                                            </tr>
+                                                            <tr id="lg-1">
+                                                                <td class="tl-1">
+                                                                    <div style="text-align:left;" id=tb-name> Address:</div>
+                                                                </td>
+                                                                <td class="tl-4">
+                                                                    <?php echo $rows['address']; ?>
+                                                                </td>
+                                                            </tr>
+                                                            <tr id="lg-1">
+                                                                <td class="tl-1">
+                                                                    <div style="text-align:left;" id=tb-name>City: </div>
+                                                                </td>
+                                                                <td class="tl-4">
+                                                                    <?php echo $rows['city']; ?>
+                                                                </td>
+                                                            </tr>
+                                                            <tr id="lg-1">
+                                                                <td class="tl-1">
+                                                                    <div style="text-align:left;" id=tb-name>State: </div>
+                                                                </td>
+                                                                <td class="tl-4">
+                                                                    <?php echo $rows['state']; ?>
+                                                                </td>
+                                                            </tr>
+                                                            <tr id="lg-1">
+                                                                <td class="tl-1">
+                                                                    <div style="text-align:left;" id=tb-name> Country:</div>
+                                                                </td>
+                                                                <td class="tl-4">
+                                                                    <?php echo $rows['country']; ?>
+                                                                </td>
+                                                            </tr>
+                                                            <tr id="lg-1">
+                                                                <td class="tl-1">
+                                                                    <div style="text-align:left;" id=tb-name>Pin: </div>
+                                                                </td>
+                                                                <td class="tl-4">
+                                                                    <?php echo $rows['pin']; ?>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                    <a href="./logout.php" class="btn btn-primary">Logout</a>
+                                                    <!-- <a href="./deleteac.php" class="btn btn-primary">Delete Account</a> -->
                                                 </div>
                                             </div>
-                                            <div class="panel-footer">
-                                                <a data-original-title="Broadcast Message" data-toggle="tooltip"
-                                                    type="button" class="btn btn-sm btn-primary"><i
-                                                        class="glyphicon glyphicon-envelope"></i></a>
-                                                <span class="pull-right">
-                                                    <a href="edit.html" data-original-title="Edit this user"
-                                                        data-toggle="tooltip" type="button"
-                                                        class="btn btn-sm btn-warning"><i
-                                                            class="glyphicon glyphicon-edit"></i></a>
-                                                    <a data-original-title="Remove this user" data-toggle="tooltip"
-                                                        type="button" class="btn btn-sm btn-danger"><i
-                                                            class="glyphicon glyphicon-remove"></i></a>
-                                                </span>
-                                            </div>
-                                        </form>
+                                        </div>
+                                        <div class="panel-footer">
+                                            <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary">
+                                                <i class="glyphicon glyphicon-envelope"></i>
+                                            </a>
+                                            <span class="pull-right">
+                                                <a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning">
+                                                    <i class="glyphicon glyphicon-edit"></i>
+                                                </a>
+                                                <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger">
+                                                    <i class="glyphicon glyphicon-remove"></i>
+                                                </a>
+                                            </span>
+                                        </div>
                                     </div>
+
                                 </div>
                             </div>
+                        </form>
                     </div>
                 </div>
-                <?php
-            } ?>
-
+            <?php } ?>
             </div>
         </div>
     </div>
