@@ -84,13 +84,13 @@ if ( $scheme_number == 'TR1234' ) {
                                             <td><?php echo $cnt;?></td>
                                             <td><?php echo htmlentities($row['Name']);?></td>
                                             <td><?php echo htmlentities($row['email']);?></td>
-                                            <td><?php echo htmlentities($row['phone']);?></td>
+                                            <td><?php echo htmlentities($row['tracking_number']);?></td>
                                             <td><?php echo htmlentities($row['village']);?></td>
                                             <!-- <td><?php echo htmlentities($row['sem']);?></td> -->
                                             <!-- <td><?php echo htmlentities($row['edate']);?></td> -->
                                             <td>
-                                            <a href="print.php?id=<?php echo $row['certno']?>" target="_blank">
-                                                <button class="btn btn-primary"><i class="fa fa-print "></i> Print</button> </a>                                   
+                                            <a href="print.php?id=<?php echo $row['tracking_number']?>" target="_blank">
+                                                <button class="btn btn-primary"><i class="fa fa-print "></i> Print</button></a>                               
                                             </td>
                                         </tr>
                                     <?php $cnt++; } ?>
