@@ -1,20 +1,44 @@
 <?php
-include('session.php');
+session_start();
+error_reporting(0);
+
+if( strlen($_SESSION['login']) > 0 ) {
+    $show = true;
+} else {
+    header('location:index.php');
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-<style>
-.header{
-    box-sizing: border-box;
-    text-align: center;
-    margin: 10px;
-}
-</style>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+    <!-- CSS Links -->
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<link rel="stylesheet" href="css/header-footer.css">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+    <!-- jQuery -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <style>
+    .header{
+        box-sizing: border-box;
+        text-align: center;
+        margin: 10px;
+    }
+    </style>
+	<title>Dashboard</title>
+</head>
+
 <body>
+    <?php include('include/header.php');?>
+
     <header class="header">
         <nav>
             <h2>Gram-Vikas Yojna</h2>
@@ -23,15 +47,15 @@ include('session.php');
             You are now logged in. you can logout by clicking on signout link given below.
         </p>
     </header>
+
     <div id="center">
         <div id="contentbox">
             <div id="contentbox">
-                <?php
-            $sql="SELECT * FROM member where mem_id=$loggedin_id";
-            ?>
-            <?php
-            while($rows=mysqli_fetch_array($result)){
-            ?>
+            <?php 
+            
+            $sql = "SELECT * FROM member where mem_id = $loggedin_id";
+            
+            while ( $rows = mysqli_fetch_array( $result ) ) { ?>
                 <div id="signup">
                     <div id="signup-st">
                         <form action="./execute.php" method="get" id="signin" id="reg">
@@ -152,22 +176,26 @@ include('session.php');
                             </div>
                     </div>
                 </div>
+                <?php
+            } ?>
+
             </div>
-            <?php
-            }
-            ?>
         </div>
     </div>
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <div class="copyright">
-                        <p style="margin: 20px;">© <span>2022</span> <a href="#" class="transition">@Vaishnavi</a> All rights reserved.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    
+	<?php include('include/footer.php');?>
+
+	</script>
+
+    <!-- javaScripts libraries-->
+    <!-- <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script> -->
+    <!-- <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- pooper.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <!-- bootstrap.js -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 </body>
 </html>

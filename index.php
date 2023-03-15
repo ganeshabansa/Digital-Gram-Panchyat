@@ -193,7 +193,7 @@ if( strlen($_SESSION['login']) > 0 ) {
                     <h4 class='text-center'>Welcome <?= $_SESSION['name'] ?>! </h4>
                 </div>
                 <div class="box">
-                    <div class="box-items"><a href="./MyProfile.php">My Profile</a></div>
+                    <div class="box-items"><a href="./dashboard.php">My Profile</a></div>
                     <div class="box-items"><a href="">My Applied Scheme</a></div>
                     <!-- <div class="box-items"><a href="">My Cancelled Scheme</a></div> -->
                     <div class="box-items"><a href="./logout.php">LogOut</a></div>
