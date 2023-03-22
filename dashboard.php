@@ -32,6 +32,9 @@ if( strlen($_SESSION['login']) > 0 ) {
         text-align: center;
         margin: 10px;
     }
+    .headrg {
+        padding-top: 12px;
+    }
     </style>
 	<title>Dashboard</title>
 </head>
@@ -41,14 +44,12 @@ if( strlen($_SESSION['login']) > 0 ) {
 
     <header class="header">
         <nav>
-            <h2>Gram-Vikas Yojna</h2>
+            <h2>Digital Dashboard</h2>
         </nav>
-        <p style="font-size: 16px;">
-            You are now logged in. you can logout by clicking on signout link given below.
-        </p>
+        <!-- <p style="font-size: 16px;"> You are now logged in. </p> -->
     </header>
 
-    <div class="container" id="center">
+    <div class="container mt-4" id="center">
         <div id="contentbox">
             <div id="contentbox">
 
@@ -68,30 +69,22 @@ if( strlen($_SESSION['login']) > 0 ) {
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
                                 <div class="panel panel-info">
                                     
-                                    <div class="panel-heading" style="height: 45px;">
+                                    <div class="panel-heading text-center" style="height: 45px;">
                                         <h3 style="margin: 0px;">Welcome <?php echo $_SESSION['name'] ?>, </h3>
                                     </div>
 
                                     <div id="signup">
-                                        <div id="reg-head" class="headrg" style="font-size: 16px; margin: 5px;">Your Profile</div>
+                                        <div id="reg-head" class="headrg text-center" style="font-size: 16px; margin: 5px;">Your Profile</div>
                                         <div class="panel-body">
                                             <div class="row">
                                                 <!-- User Profile Picture -->
-                                                <!-- <div class="col-md-3 col-lg-3 "> 
-                                                    <img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive"> 
-                                                </div> -->
+                                                <div class="col-md-3 col-lg-3 "> 
+                                                    <img alt="User Pic" src="https://iptc.org/wp-content/uploads/2018/05/avatar-anonymous-300x300.png" class="img-circle img-responsive"> 
+                                                </div>
 
-                                                <div class=" col-md-12 col-lg-12 ">
+                                                <div class=" col-md-9 col-lg-9 ">
                                                     <table class="table table-user-information">
                                                         <tbody>
-                                                            <tr id="lg-1">
-                                                                <td class="tl-1">
-                                                                    <div style="text-align: left;" id=tb-name>Reg id:</div>
-                                                                </td>
-                                                                <td class="tl-4">
-                                                                    <?php echo $rows['EmpName']; ?>
-                                                                </td>
-                                                            </tr>
                                                             <tr id="lg-1">
                                                                 <td class="tl-1">
                                                                     <div style="text-align:left;" id=tb-name> Username:</div>
@@ -150,22 +143,24 @@ if( strlen($_SESSION['login']) > 0 ) {
                                                             </tr>
                                                         </tbody>
                                                     </table>
-                                                    <a href="./logout.php" class="btn btn-primary">Logout</a>
+                                                    <!-- <a href="./logout.php" class="btn btn-primary">Logout</a> -->
                                                     <!-- <a href="./deleteac.php" class="btn btn-primary">Delete Account</a> -->
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="panel-footer">
-                                            <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary">
+                                            <!-- <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary">
                                                 <i class="glyphicon glyphicon-envelope"></i>
-                                            </a>
+                                            </a> -->
+                                            <a href="./logout.php" class="btn btn-primary">Logout</a>
+
                                             <span class="pull-right">
-                                                <a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning">
+                                                <a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" data-placement="top" title="Edit Profile" type="button" class="btn btn-sm btn-warning">
                                                     <i class="glyphicon glyphicon-edit"></i>
                                                 </a>
-                                                <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger">
+                                                <!-- <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger">
                                                     <i class="glyphicon glyphicon-remove"></i>
-                                                </a>
+                                                </a> -->
                                             </span>
                                         </div>
                                     </div>

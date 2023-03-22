@@ -82,7 +82,7 @@ if ( $scheme_number == 'TR1234' ) {
                                     while( $row = mysqli_fetch_array($sql) ) { ?>
                                         <tr>
                                             <td><?php echo $cnt;?></td>
-                                            <td><?php echo htmlentities($row['Name']);?></td>
+                                            <td><?php echo htmlentities($row['name']);?></td>
                                             <td><?php echo htmlentities($row['email']);?></td>
                                             <td><?php echo htmlentities($row['tracking_number']);?></td>
                                             <td><?php echo htmlentities($row['village']);?></td>
