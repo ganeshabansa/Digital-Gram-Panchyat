@@ -11,16 +11,7 @@ $s = $_GET['state'];
 $count = $_GET['country'];
 $pi = $_GET['pin'];
 
-// echo "$ename";
-// echo "$em";
-// echo "$pass";
-// echo "$repass";
-// echo "$addr";
-// echo "$c";
-// echo "$count";
-// echo "$pi";
-
-$query = "insert into registration values ('$ename','$em','$pass','$repass', '$addr', '$c', '$s', '$count', '$pi')";
+$query = "insert into registration values ('$ename','$em','$pass', '$addr', '$c', '$s', '$count', '$pi')";
 $result = mysqli_query($con , $query);
 
 $host = $_SERVER['HTTP_HOST'];

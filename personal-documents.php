@@ -22,7 +22,7 @@ if( strlen($_SESSION['login']) > 0 ) {
 	<link rel="stylesheet" href="css/header-footer.css">
 	<link rel="stylesheet" href="css/personal-documents.css">
 
-	<title>Upload the Details</title>
+	<title>Upload</title>
 </head>
 
 

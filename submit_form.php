@@ -1,113 +1,189 @@
-<?php 
+<?php
+session_start();
+error_reporting(0);
 
+if( strlen($_SESSION['login']) > 0 ) {
+    $show = true;
+} else {
+    header('location:index.php');
+    exit();
+}
+
+// Check Post Data, Check File Data
+// echo '<pre>';
+// print_r($_POST);
+// print_r($_FILES);
+// echo '</pre>';
+
+// /*
 // Fetch ALL The Documents
 if ( isset($_FILES["benified_file"]) ) {
-    $benfile = $_FILES["benified_file"]["name"];
     $temp = $_FILES["benified_file"]["tmp_name"];
-    
-    $pathOfBonafied = "doc/".$benfile;
-    move_uploaded_file($temp, $pathOfBonafied);
-    // echo "<br>".$pathOfBonafied;
+    $pathOfBonafied = "doc/". $_FILES["benified_file"]["name"];
+
+    move_uploaded_file( $temp,  $pathOfBonafied );
 }
 
 if ( isset($_FILES["adhar_file"]) ) {
-    $benfile = $_FILES["adhar_file"]["name"];
     $temp = $_FILES["adhar_file"]["tmp_name"];
-    
-    $pathOfAddhar = "doc/".$benfile;
-    move_uploaded_file($temp,$pathOfAddhar);
-    // echo "<br>".$pathOfAddhar;
+    $pathOfAddhar = "doc/". $_FILES["adhar_file"]["name"];
+
+    move_uploaded_file( $temp, $pathOfAddhar );
 }
 
 if ( isset($_FILES["cast_certfile"]) ) {
-    $benfile = $_FILES["cast_certfile"]["name"];
     $temp = $_FILES["cast_certfile"]["tmp_name"];
-    
-    $pathOfCastCertificate = "doc/".$benfile;
-    move_uploaded_file($temp,$pathOfCastCertificate);
-    // echo "<br>".$pathOfCastCertificate;
+    $pathOfCastCertificate = "doc/". $_FILES["cast_certfile"]["name"];
+
+    move_uploaded_file( $temp, $pathOfCastCertificate );
 }
 
 if ( isset($_FILES["domicile_cert"]) ) {
-    $benfile = $_FILES["domicile_cert"]["name"];
     $temp = $_FILES["domicile_cert"]["tmp_name"];
-    
-    $pathOfDomicile = "doc/".$benfile;
-    move_uploaded_file($temp,$pathOfDomicile);
-    // echo "<br>".$pathOfDomicile;
+    $pathOfDomicile = "doc/". $_FILES["domicile_cert"]["name"];
+
+    move_uploaded_file( $temp, $pathOfDomicile );
 }
 
 if ( isset($_FILES["passbook_file"]) ) {
-    $benfile = $_FILES["passbook_file"]["name"];
     $temp = $_FILES["passbook_file"]["tmp_name"];
-    
-    $pathOfPassbook= "doc/".$benfile;
-    move_uploaded_file($temp,$pathOfPassbook);
-    // echo "<br>".$pathOfPassbook;
+    $pathOfPassbook= "doc/". $_FILES["passbook_file"]["name"];
+
+    move_uploaded_file( $temp, $pathOfPassbook );
 }
+// */
 
+if ( isset( $_POST['name'] ) ) {
 
-if ( isset($_POST['name']) ) {
-
+    $trackingId = "BGA" . date("ymdHis") . rand(1000,9999);
     $name = $_POST['name'];
-    $em = $_POST['email'];
+    $email = $_POST['email'];
     $phone = $_POST['phone'];
-    $addr = $_POST['address'];
-    $c = $_POST['city'];
-    $pi = $_POST['pin'];
-    $s = $_POST['state'];
-    $gen = $_POST['gender'];
-    $ag = $_POST['age'];
-
-    $vl = $_POST['village'];
+    $address = $_POST['address'];
+    $city = $_POST['city'];
+    $pincode = $_POST['pin'];
+    // $s = $_POST['state'];
+    $gender = $_POST['gender'];
+    $age = $_POST['age'] ? $_POST['age'] : 24;
+    $village = $_POST['village'];
     $gn = $_POST['gname'];
-    $ar = $_POST['area'];
+    $area = $_POST['area'];
     $in = $_POST['inline'];
-    $adhar = $_POST['adhar'];
+    $addharNumber = $_POST['adhar'];
     $username= $_POST['username'];
     $cno = $_POST['certno'];
     $uname = $_POST['uname'];
     $crno= $_POST['crno'];
-    $acno = $_POST['accno'];
-    $if = $_POST['ifsc'];
-    $br= $_POST['branch'];
+    $accountNumber = $_POST['accno'];
+    $bankIFSC = $_POST['ifsc'];
+    $branch = $_POST['branch'];
+    $table_name = $_POST['schemeName'];
+    $applied_date = date("Y/m/d");
+    
+    // $table_name = 'tree_planting';
+    // $table_name = 'individual_irrigation';
+    // $table_name = 'individual_irrigation';
+    // $table_name = "animal_herds";
 
-    // echo "$village<br>";
-    // echo "$gname<br>";
-    // echo "$area<br>";
-
-    // echo "$name<br>";
-    // echo "$em<br>";
-    // echo "$phone<br>";
-    // echo "$addr<br>";
-    // echo "$c<br>";
-    // echo "$pi<br>";
-    // echo "$s<br>";
-    // echo "$gen<br>";
-    // echo "$ag<br>";
-    include("conn_db.php");
+    include("include/config.php");
     error_reporting(0);
     
-    $query = "insert into individual_farms (Name, email, phone, address, city, pin, gender, age, village, gname, area, inline, benified_file, adhar_no, adhar_file, username, certno, cast_certfile, uname, cr_no, domicile_cert, accno, ifsc, branch, passbook_file) values ('$name', '$em', '$phone', '$addr', '$c','$pi', '$gen', '$ag', '$vl', '$gn', '$ar', '$in', '$pathOfBonafied', '$adhar' ,'$pathOfAddhar', '$username', '$cno' ,'$pathOfCastCertificate' , '$uname', '$crno', '$pathOfDomicile', '$acno', '$if', '$br', '$pathOfPassbook')";
-    // $query = "insert into individual_farms (Name, email, phone, address, city, pin, gender, age) values ('$name','$em','$phone', '$addr', '$c','$pi', '$gen', '$ag')";
-    $data = mysqli_query($conn , $query);
-    if($data){
-      echo '<script>alert("Data inserted successfully !")</script>';
+    $query = "insert into individual_farms (tracking_number, name, email, phone, address, city, pin, gender, age, village, gname, area, inline, benified_file, adhar_no, adhar_file, username, certno, cast_certfile, uname, cr_no, domicile_cert, accno, ifsc, branch, passbook_file, applied_date) values ( '$trackingId', '$name', '$email', '$phone', '$address', '$city','$pincode', '$gender', '$age', '$village', '$gn', '$area', '$in', '$pathOfBonafied', '$addharNumber' ,'$pathOfAddhar', '$username', '$cno' ,'$pathOfCastCertificate' , '$uname', '$crno', '$pathOfDomicile', '$accountNumber', '$bankIFSC', '$branch', '$pathOfPassbook', '$applied_date')";
+
+    if ( mysqli_query( $con , $query ) ) {
+    //   echo '<script>alert("Data inserted successfully !")</script>';
+        $displayPopUp = true;
+    } else {
+        $displayPopUp = false;
+    //   echo '<script>alert("Data not inserted")</script>';
     }
-    else{
-      echo '<script>alert("Data not inserted")</script>';
-    }
+
 }
+// $displayPopUp = true;
 
-// Check Post Data
-echo '<pre>';
-print_r($_POST);
-echo '</pre>';
-
-// Check File Data
-echo '<pre>';
-print_r($_FILES);
-echo '</pre>';
-
-        
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+    <!-- CSS Links -->
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<link rel="stylesheet" href="css/header-footer.css">
+	<link rel="stylesheet" href="css/submit_form.css">
+
+	<title>Confirmation Page</title>
+</head>
+
+<body>
+    <?php include('include/header.php');?>
+
+    
+    <div class="container confirmation-page-body">
+        
+        <?php if ( $displayPopUp ) { ?> <!-- Success Modal -->
+            <div class="popup" id="success">
+            <div class="popup-content">
+                <div class="imgbox">
+                    <img src="img/checked.png" alt="" class="img">
+                </div>
+                <div class="title">
+                    <h3>Success!</h3>
+                </div>
+                <p class="para">Your application has been successfully submitted</p>
+                <br>
+                <div class="success-message">
+                    <p class="para">Thanks you for submitting form. To keep a track of your application use below Tracking ID</p>
+                    <b><p class="track-id"> Tracking ID: <?= $trackingId ? $trackingId : 'BGA789456123659856' ?> </p></b>
+                </div>
+                <form action="">
+                    <button class="button" id="s_button">View Application</button>
+                </form>
+            </div>
+            </div>
+        <?php } else { ?> <!-- Failure Modal -->    
+            <div class="popup" id="error">
+            <div class="popup-content">
+                <div class="imgbox">
+                    <img src="img/cancel.png" alt="" class="img">
+                </div>
+                <div class="title">
+                    <h3>Sorry :(</h3>
+                </div>
+                <p class="para">Something went wrong. Please try again!</p>
+                <br>
+                <div class="success-message">
+                    <p class="para">Please fill your application again with correct details.</p>
+                    <!-- <div class="reasons text-center">
+                        <ul>
+                            <li>Check your Internet</li>
+                            <li>Fill correct details</li>
+                        </ul>
+                    </div> -->
+                </div>
+                <br>
+                <form action="index.php">
+                    <button class="button" id="e_button">TRY AGAIN</button>
+                </form>
+            </div>
+            </div>
+        <?php }  ?>
+
+    </div>
+    
+    
+	<?php include('include/footer.php');?>
+
+    <!-- javaScripts libraries-->
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- pooper.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <!-- bootstrap.js -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+</body>
+</html>
