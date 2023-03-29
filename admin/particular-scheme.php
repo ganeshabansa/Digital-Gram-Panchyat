@@ -68,7 +68,7 @@ if ( $scheme_number == 'TR1234' ) {
                                         <th>#</th>
                                         <th>User Name </th>
                                         <th>User E-Mail </th>
-                                        <th>User Phone Number </th>
+                                        <th>Tracking Id </th>
                                         <th>Village </th>
                                         <!-- <th>Semester</th> -->
                                         <!-- <th>Enrollment Date</th> -->
@@ -82,7 +82,7 @@ if ( $scheme_number == 'TR1234' ) {
                                     while( $row = mysqli_fetch_array($sql) ) { ?>
                                         <tr>
                                             <td><?php echo $cnt;?></td>
-                                            <td><?php echo htmlentities($row['Name']);?></td>
+                                            <td><?php echo htmlentities($row['name']);?></td>
                                             <td><?php echo htmlentities($row['email']);?></td>
                                             <td><?php echo htmlentities($row['tracking_number']);?></td>
                                             <td><?php echo htmlentities($row['village']);?></td>

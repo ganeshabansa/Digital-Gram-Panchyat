@@ -44,7 +44,7 @@ error_reporting(0);
                 <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                 <a class="nav-link" href="./login.php">Login</a>
                 <a class="nav-link" href="./registration.php">Registration</a>
-                <a class="nav-link" href="#contact">About Us</a>
+                <a class="nav-link" href="./contact.php">Contact Us</a>
             </section>
         </div>
         <div class="img1">
