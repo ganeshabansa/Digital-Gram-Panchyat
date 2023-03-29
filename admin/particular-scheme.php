@@ -68,7 +68,7 @@ if ( $scheme_number == 'TR1234' ) {
                                         <th>#</th>
                                         <th>User Name </th>
                                         <th>User E-Mail </th>
-                                        <th>User Phone Number </th>
+                                        <th>Tracking Id </th>
                                         <th>Village </th>
                                         <!-- <th>Semester</th> -->
                                         <!-- <th>Enrollment Date</th> -->
