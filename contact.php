@@ -19,44 +19,56 @@
 	<title>Contact Us</title>
 
 	<style>
-	
+        
 		/* body {font-family: Arial, Helvetica, sans-serif;}
 		* {box-sizing: border-box;} */
 
-		.input_style select, textarea {
-			width: 100%;
-			padding: 12px;
-			border: 1px solid;
-			border-radius: 4px;
-			box-sizing: border-box;
-			margin-top: 6px;
-			margin-bottom: 16px;
-			resize: vertical;
-		}
+    *{
 
-		.input_style {
-		/* background-color: #04AA6D; */
-		/* color: white; */
-		padding: 12px 20px;
-		/* border: none; */
-		border-radius: 4px;
-		cursor: pointer;
-		}
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: poppins , sans-serif;
 
-		/* .input_style:hover {
-		background-color: #45a049;
-		} */
-		section .container
+              }
+
+ section
+
        {
 
     position: relative;
-    min-width: 1100px;
-     min-height: 550px;
-     display: flex;
-    z-index: 1000;         
-        }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+   
+                       }
 
-   section .container .contactinfo
+section::before
+
+    {
+                
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height:100%;
+                  }
+
+section .container
+
+   {
+
+    position: relative;
+    min-width: 1100px;
+    min-height: 550px;
+    display: flex;
+    z-index: 1000;         
+                       }
+
+section .container .contactinfo
+
     {
 
     position: relative;
@@ -70,28 +82,28 @@
     flex-direction: column;
     justify-content: space-between;
     box-shadow: 0 20px 20px rgba(0,0,0,0.2);
-                                            
-                                        }
 
+                                              }
 
-   section .container .contactinfo h2
-         
-   {
+section .container .contactinfo h2
+
+ {
     color: #fff;
     font-size: 24px;
     font-weight: 500;
-                       }
+                          }
 
-  section .container .contactinfo .info
-       {
+section .container .contactinfo .info
+
+  {
     
     position: relative;
     margin: 20px 0;
-                     }
+                      }
 
-   section .container .contactinfo .info li
-       {
+section .container .contactinfo .info li
 
+  {
     position: relative;
     list-style: none;
     display: flex;
@@ -99,40 +111,46 @@
     cursor: pointer;
     align-items: flex-start;
 
-                }
+                                 }
 
-   section .container .contactinfo .info li span:nth-child(1)
-           {
+section .container .contactinfo .info li span:nth-child(1)
+
+ {
 
     width: 30px;
    min-width: 30px;
-           }
+                       }
 
-   section .container .contactinfo .info li span:nth-child(1) img
-         {
+section .container .contactinfo .info li span:nth-child(1) img
+
+  {
+
     max-width: 100%;
     filter: invert(1);
     opacity: 0.5;
-            }
+                     }
 
-    section .container .contactinfo .info li span:nth-child(2)
-        {
+section .container .contactinfo .info li span:nth-child(2)
+
+    {
 
     color: #fff;
     margin-left: 10px;
     font-weight: 300;
     opacity: 0.5;
-               }
+                        }
 
-   section .container .contactinfo .info li span:nth-child(1) img,
-   section .container .contactinfo .info li span:nth-child(2)
-          {
+section .container .contactinfo .info li span:nth-child(1) img,
+section .container .contactinfo .info li span:nth-child(2)
 
+   {
+    
     opacity: 1;
-         }
+                   }
 
-   section .container .Contactform
-      {
+section .container .Contactform
+
+    {
 
     position: absolute;
     padding: 70px 50px;
@@ -142,48 +160,54 @@
     width: calc(100% - 150px);
     height: 100%;
     box-shadow: 0 50px 50px rgba(0,0,0,0.5);
-                                             }
-			    
-    section .container .Contactform h2
-                 {
+                                               }
+
+section .container .Contactform h2
+
+   {
 
     color: #0f3959;
     font-size: 24px;
     font-weight: 500;
-                     }
+                       }
 
-   section .container .Contactform .formBox
-           {
+section .container .Contactform .formBox
+
+    {
 
     position: relative;
     display: flex;
     justify-content: space-between;
     flex-wrap:wrap ;
     padding-top: 30px;
-                  }
+                        }
 
-   section .container .Contactform .formBox .inputBox
-           {
+section .container .Contactform .formBox .inputBox
+
+    {
 
     position: relative;
     margin: 0 0 35px 0;
-                       }
+                           }
 
-   section .container .Contactform .formBox .inputBox.w50
-           {
+section .container .Contactform .formBox .inputBox.w50
+
+   {
 
     width: 47%;
-                   }
-
-   section .container .Contactform .formBox .inputBox.w100
-           {
-
-    width: 100%;
                   }
 
-   section .container .Contactform .formBox .inputBox input,
-   section .container .Contactform .formBox .inputBox textarea 
-             {
+section .container .Contactform .formBox .inputBox.w100
+
+    {
+
+    width: 100%;
+                 }
+
+section .container .Contactform .formBox .inputBox input,
+section .container .Contactform .formBox .inputBox textarea 
+
+    {
 
     width: 100% limportant ;
     padding: 5px 0;
@@ -194,16 +218,18 @@
     border: none;
     border-bottom: 1px solid #777;
     outline: none;
-                     }
+                    }
 
-    section .container .Contactform .formBox .inputBox textarea 
-          {
+section .container .Contactform .formBox .inputBox textarea 
+
+    {
 
     min-height: 120px;
-                      }
+                           }
 
-    section .container .Contactform .formBox .inputBox span
-         {
+section .container .Contactform .formBox .inputBox span
+
+    {
 
     position: absolute;
     left: 0;
@@ -213,48 +239,51 @@
     color: #333;
     transition: 0.5s;
     pointer-events: none;
-                           }
 
-   section .container .Contactform .formBox .inputBox input:focus~span
-   section.container .Contactform .formBox .inputBox textarea:focus~span
-   section.container .Contactform .formBox .inputBox input:valid~span
-   section.container .Contactform .formBox .inputBox textarea:valid~span
-        {
+                       }
+
+section .container .Contactform .formBox .inputBox input:focus~span
+section.container .Contactform .formBox .inputBox textarea:focus~span
+section.container .Contactform .formBox .inputBox input:valid~span
+section.container .Contactform .formBox .inputBox textarea:valid~span
+
+    {
 
     transform: translateY(-20px);
     font-size:12px;
     font-weight: 400;
     letter-spacing: 1px;
     color: #ff568c;
-                       }
+                    }
 
-    section.container .Contactform .formBox .inputBox input[type="submit"]
-               {
+section.container .Contactform .formBox .inputBox input[type="submit"]
+
+    {
 
     position: relative;
     cursor: pointer;
-    background: #0f3959;
+    background: #fff;
     color: #fff;
     border: none;
     max-width: 150px;
     padding: 12px;
-                       }
+                   }
 
-    sec.container .Contactform .formBox .inputBox input[type="submit"]
-            {
+section.container .Contactform .formBox .inputBox input[type="submit"]
 
-    background: #ff568c;
-                      }
+    {
+
+        background: #ff568c;
+                          }  
 	
 
 	</style>
 </head>
 
-
-
-    <?php include('include/header.php');?>
+<?php include('include/header.php');?>
 
     <!-- Your Code Goes here -->
+
 	<body>
         <section>
         <div class="container">
@@ -312,6 +341,7 @@
     </body>
 </html>
 	
+	
 	<!-- You Stop Writing here -->
 	<?php include('include/footer.php');?>
 
@@ -325,5 +355,3 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 	<!-- bootstrap.js -->
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-</body>
-</html>

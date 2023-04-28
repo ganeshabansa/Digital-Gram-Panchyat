@@ -1,3 +1,10 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: poppins , sans-serif;
+
+}
 section
 {
     position: relative;
@@ -5,7 +12,7 @@ section
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: #112d42;
+    background: #fff;
 }
 section::before
 {
@@ -165,7 +172,7 @@ section.container .Contactform .formBox .inputBox input[type="submit"]
 {
     position: relative;
     cursor: pointer;
-    background: #0f3959;
+    background: #fff;
     color: #fff;
     border: none;
     max-width: 150px;
