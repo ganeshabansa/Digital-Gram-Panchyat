@@ -194,7 +194,7 @@ if( strlen($_SESSION['login']) > 0 ) {
                 </div>
                 <div class="box">
                     <div class="box-items"><a href="./dashboard.php">My Profile</a></div>
-                    <div class="box-items"><a href="">Track Your Application</a></div>
+                    <div class="box-items"><a href="./track_application.php">Track Your Application</a></div>
                     <!-- <div class="box-items"><a href="">My Cancelled Scheme</a></div> -->
                     <div class="box-items"><a href="./logout.php">LogOut</a></div>
                 </div>
