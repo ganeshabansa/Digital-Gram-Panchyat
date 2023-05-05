@@ -1,7 +1,7 @@
 <?php
 error_reporting(0);
 ?>
-<header>
+<header >
     <!-- Mini Bar -->
     <div class="topStrip">
         <!-- Logo and Name -->
@@ -31,7 +31,7 @@ error_reporting(0);
     </div>
 
     <!-- Navbar -->
-    <div class="container-fluid custom-container">
+    <div class="container-fluid custom-container" style="max-height:100px">
         <div class="siteLogo">
             <img src="./img/logo1.png" alt="" height="80" width="80">
             <!-- <div class="mlogo">

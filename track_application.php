@@ -27,18 +27,38 @@ if( strlen($_SESSION['login']) > 0 ) {
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <style>
-    </style>
+    
+
+ </style>
 
 	<title>Track Your Application</title>
 </head>
-
+     
+ 
 
 <body>
     <?php include('include/header.php');?>
 
     <!-- Your Code start here -->
+    
 
-
+  
+    <div class="trackingnumber">
+        <h1 class="tracking-heading">Track the status of your Application</h1>
+        <p class="tracking-subtitle">
+            Enter the tracking number of your Aplication to track the status
+        </p>
+        <form action="/" method="POST">
+            <input type="text" name="tracking" id="trackingId" class="tracking-input"
+                placeholder="Enter Your tracking number">
+            <input type="submit" onclick="track(event)" value="Track" class="tracking-button">
+        </form>
+    </div>
+    
+    
+ 
+        
+    
     
     <!-- Your Code end here -->
     
