@@ -1,119 +1,43 @@
 /* You Css Goes here */
-body {
-  color: #000;
-  overflow-x: hidden;
-  height: 100%;
-  background-color: #8c9eff;
-  background-repeat: no-repeat;
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 4rem;
+  margin: 50px auto;
+}
+.outer {
+  height: 50vh;
 }
 
-.card {
-  z-index: 0;
-  background-color: #eceff1;
-  padding-bottom: 20px;
-  margin-top: 90px;
-  margin-bottom: 90px;
-  border-radius: 10px;
+.box {
+  padding: 1rem;
 }
 
-.top {
-  padding-top: 40px;
-  padding-left: 13% !important;
-  padding-right: 13% !important;
+.box.text {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
 }
 
-/* Icon progressbar */
-
-#progressbar {
-  margin-bottom: 30px;
-  overflow: hidden;
-  color: #455a64;
-  padding-left: 0;
-  margin-top: 30px;
-}
-
-#progressbar li {
-  list-style-type: none;
-  font-size: 13px;
-  width: 25%;
-  float: left;
-  position: relative;
-  font-weight: 400;
-}
-
-#progressbar .step0::before {
-  font-family: FontAwesome;
-  content: "\f10c";
-  color: #fff;
-}
-
-#progressbar li::before {
-  width: 40px;
+.box.input {
+  width: 300px;
   height: 40px;
-  line-height: 45px;
-  display: block;
-  font-size: 20px;
-  background: #c5cae9;
-  border-radius: 50%;
-  margin: auto;
-  padding: 0;
+  font-size: 1rem;
+  padding: 0.5rem;
+  background: #9ebffb;
 }
 
-/* Progressbar connector */
-#progressbar li::after {
-  content: "";
-  width: 100%;
-  height: 12px;
-  background-color: #c5cae9;
-  position: absolute;
-  top: 16px;
-  left: 0;
-  z-index: -1;
+.box.button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  transition: all 0.2s ease-in-out;
 }
 
-#progressbar li:last-child::after {
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  position: absolute;
-  left: -50%;
-}
-
-#progressbar li:nth-child(2)::after,
-#progressbar li:nth-child(3)::after {
-  left: -50%;
-}
-
-#progressbar li:first-child::after {
-  border-top-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  position: absolute;
-  left: 50%;
-}
-
-/* Color number of the step and the connect tor before it */
-
-#progressbar li.active::before,
-#progressbar li.active::after {
-  background-color: #651fff;
-}
-
-#progressbar li.active::before {
-  font-family: FontAwesome;
-  content: "\f00c";
-}
-
-.icon {
-  width: 60px;
-  height: 60px;
-  margin-right: 15px;
-}
-
-.icon-content {
-  padding-bottom: 20px;
-}
-
-@media screen and (max-width: 992px) {
-  .icon-content {
-    width: 50%;
-  }
+.box.button:hover {
+  background-color: #0069d9;
 }

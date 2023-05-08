@@ -20,8 +20,8 @@ if( strlen($_SESSION['login']) > 0 ) {
     <!-- CSS Links -->
 	<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
 	<link rel="stylesheet" href="css/header-footer.css">
-	<link rel="stylesheet" href="css/track-application.css">
-    <!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="css/track-application.css">
 
     <!-- jQuery -->
     <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
@@ -44,6 +44,48 @@ if( strlen($_SESSION['login']) > 0 ) {
     />
 
     <style>
+      .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 4rem;
+  }
+
+  .box {
+    padding: 1rem;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+  }
+
+  .box.text {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    background: #9ebffb;
+  }
+
+  .box.input {
+    width: 300px;
+    height: 40px;
+    font-size: 1rem;
+    padding: 0.5rem;
+    background: #9ebffb;
+  }
+
+  .box.button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .box.button:hover {
+    background-color: #0069d9;
+  }
+        
     </style>
 
 	<title>Track Your Application</title>
@@ -54,79 +96,24 @@ if( strlen($_SESSION['login']) > 0 ) {
 <body>
     <?php include('include/header.php');?>
 
-    <!-- Your Code start here -->
-  
-    <!-- <div class="trackingnumber">
-        <h1 class="tracking-heading">Track the status of your Application</h1>
-        <p class="tracking-subtitle">
-            Enter the tracking number of your Aplication to track the status
-        </p>
-        <form action="/" method="POST">
-            <input type="text" name="tracking" id="trackingId" class="tracking-input"
-                placeholder="Enter Your tracking number">
-            <input type="submit" onclick="track(event)" value="Track" class="tracking-button">
-        </form>
-    </div> -->
-
-    <div class="container px-5 px-md-4 py-5 mx-auto">
-      <div class="card">
-
-        <div class="row d-flex justify-content-between px-3 top">
-          <div class="d-flex">
-            <h5>
-              Name
-              <span class="text-primary font-weight-bold">Ganesha Bansa</span>
-            </h5>
-          </div>
-          <div class="d-flex flex-column text-sm-right">
-            <p class="mb-0">
-              Application Submitted on <span class="font-weight-bold">07 April 2023</span>
-            </p>
-            <p>
-              ID <span class="font-weight-bold">BGA67163473124234</span>
-            </p>
-          </div>
-        </div>
-
-        <!-- Add class "active" to progress -->
-        <div class="row d-flex justify-content-center">
-          <div class="col-12">
-            <ul id="progressbar" class="text-center">
-              <li class="active step0"></li>
-              <li class="active step0"></li>
-              <li class="active step0"></li>
-              <li class="step0"></li>
-            </ul>
-          </div>
-        </div>
-        <div class="row justify-content-between top">
-          <div class="row d-flex icon-content">
-            <img src="./img/CheckList.png" alt="" class="icon" />
-            <div class="d-flex flex-column">
-              <p class="font-weight-bold">Order <br />Desk 1</p>
-            </div>
-          </div>
-          <div class="row d-flex icon-content">
-            <img src="./img/Delivery.png" alt="" class="icon" />
-            <div class="d-flex flex-column">
-              <p class="font-weight-bold">Order <br />Desk 2</p>
-            </div>
-          </div>
-          <div class="row d-flex icon-content">
-            <img src="./img/Shipping.png" alt="" class="icon" />
-            <div class="d-flex flex-column">
-              <p class="font-weight-bold">Order <br />Desk 3</p>
-            </div>
-          </div>
-          <div class="row d-flex icon-content">
-            <img src="./img/Home.png" alt="" class="icon" />
-            <div class="d-flex flex-column">
-              <p class="font-weight-bold">Order <br />Approved/Rejected</p>
-            </div>
-          </div>
-        </div>
-      </div>
+    <!-- Your Code start here --> 
+     <div class="outer-">
+    
+    <div class="container">
+      <div class="box text">Enter the Tracking number of your Application to track the Status</div>
+      <div class="box input"><input type="text" placeholder="Enter tracking number" style="width:100%;"></div>
+      <div class="box button" style="center;">Submit</div>
     </div>
+    
+    </div>
+   
+    
+
+    
+    
+ 
+        
+    
     
     <!-- Your Code end here -->
     
