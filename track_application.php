@@ -21,15 +21,56 @@ if( strlen($_SESSION['login']) > 0 ) {
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 	<link rel="stylesheet" href="css/header-footer.css">
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="css/track-application.css">
 
     <!-- jQuery -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <style>
-    
+      .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 4rem;
+  }
 
- </style>
+  .box {
+    padding: 1rem;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+  }
+
+  .box.text {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    background: #9ebffb;
+  }
+
+  .box.input {
+    width: 300px;
+    height: 40px;
+    font-size: 1rem;
+    padding: 0.5rem;
+    background: #9ebffb;
+  }
+
+  .box.button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .box.button:hover {
+    background-color: #0069d9;
+  }
+        
+    </style>
 
 	<title>Track Your Application</title>
 </head>
@@ -39,21 +80,19 @@ if( strlen($_SESSION['login']) > 0 ) {
 <body>
     <?php include('include/header.php');?>
 
-    <!-- Your Code start here -->
+    <!-- Your Code start here --> 
+     <div class="outer-">
+    
+    <div class="container">
+      <div class="box text">Enter the Tracking number of your Application to track the Status</div>
+      <div class="box input"><input type="text" placeholder="Enter tracking number" style="width:100%;"></div>
+      <div class="box button" style="center;">Submit</div>
+    </div>
+    
+    </div>
+   
     
 
-  
-    <div class="trackingnumber">
-        <h1 class="tracking-heading">Track the status of your Application</h1>
-        <p class="tracking-subtitle">
-            Enter the tracking number of your Aplication to track the status
-        </p>
-        <form action="/" method="POST">
-            <input type="text" name="tracking" id="trackingId" class="tracking-input"
-                placeholder="Enter Your tracking number">
-            <input type="submit" onclick="track(event)" value="Track" class="tracking-button">
-        </form>
-    </div>
     
     
  
