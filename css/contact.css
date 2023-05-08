@@ -1,7 +1,7 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  /* margin: 0; */
+  /* padding: 0; */
+  /* box-sizing: border-box; */
   font-family: poppins, sans-serif;
 }
 
@@ -10,7 +10,7 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: 85vh;
 }
 
 section::before {
@@ -32,7 +32,7 @@ section .container {
 
 section .container .contactinfo {
   position: relative;
-  top: 40px;
+  top: 85px;
   width: 350px;
   height: calc(100% - 80px);
   background: #0f3959;
@@ -53,6 +53,7 @@ section .container .contactinfo h2 {
 section .container .contactinfo .info {
   position: relative;
   margin: 20px 0;
+  padding: 0;
 }
 
 section .container .contactinfo .info li {
@@ -197,4 +198,16 @@ section.container .Contactform .formBox .inputBox input[type="submit"] {
 
 section.container .Contactform .formBox .inputBox input[type="submit"] {
   background: #ff568c;
+}
+
+.submit_button {
+  padding: 8px;
+  padding-left: 40px;
+  padding-right: 40px;
+  background-color: #0f3959;
+  color: #fff;
+}
+
+.query_style {
+  width: inherit;
 }

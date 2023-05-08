@@ -88,7 +88,7 @@ if ( isset( $_POST['name'] ) ) {
     include("include/config.php");
     error_reporting(0);
     
-    $query = "insert into individual_farms (tracking_number, name, email, phone, address, city, pin, gender, age, village, gname, area, inline, benified_file, adhar_no, adhar_file, username, certno, cast_certfile, uname, cr_no, domicile_cert, accno, ifsc, branch, passbook_file, applied_date) values ( '$trackingId', '$name', '$email', '$phone', '$address', '$city','$pincode', '$gender', '$age', '$village', '$gn', '$area', '$in', '$pathOfBonafied', '$addharNumber' ,'$pathOfAddhar', '$username', '$cno' ,'$pathOfCastCertificate' , '$uname', '$crno', '$pathOfDomicile', '$accountNumber', '$bankIFSC', '$branch', '$pathOfPassbook', '$applied_date')";
+    $query = "insert into individual_farms (tracking_number, name, email, phone, address, city, pin, gender, age, village, gname, area, inline, benified_file, adhar_no, adhar_file, username, certno, cast_certfile, uname, cr_no, domicile_cert, accno, ifsc, branch, passbook_file, applied_date, desk1, desk2, desk3, status) values ( '$trackingId', '$name', '$email', '$phone', '$address', '$city','$pincode', '$gender', '$age', '$village', '$gn', '$area', '$in', '$pathOfBonafied', '$addharNumber' ,'$pathOfAddhar', '$username', '$cno' ,'$pathOfCastCertificate' , '$uname', '$crno', '$pathOfDomicile', '$accountNumber', '$bankIFSC', '$branch', '$pathOfPassbook', '$applied_date', 0, 0, 0, 0)";
 
     if ( mysqli_query( $con , $query ) ) {
     //   echo '<script>alert("Data inserted successfully !")</script>';

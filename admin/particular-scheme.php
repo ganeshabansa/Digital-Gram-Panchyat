@@ -24,6 +24,7 @@ if ( $scheme_number == 'TR1234' ) {
     <title></title>
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
     <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/b0daac4309.js" crossorigin="anonymous"></script>
     <link href="assets/css/style.css" rel="stylesheet" />
 </head>
 <body>
@@ -69,28 +70,40 @@ if ( $scheme_number == 'TR1234' ) {
                                         <th>User Name </th>
                                         <th>User E-Mail </th>
                                         <th>Tracking Id </th>
-                                        <th>Village </th>
-                                        <!-- <th>Semester</th> -->
-                                        <!-- <th>Enrollment Date</th> -->
+                                        <th>Applied Date </th>
+                                        <th>Days</th>
                                         <th>Action</th>
+                                        <th>Aprove</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
                                     $sql = mysqli_query($con,"select * from $table_name");
                                     $cnt = 1;
-                                    while( $row = mysqli_fetch_array($sql) ) { ?>
+                                    while( $row = mysqli_fetch_array($sql) ) { 
+                                        
+                                        // Get the number of days since we applied
+                                        $applied_date = date_create($row['applied_date']);
+                                        $current_date = date_create(date("Y/m/d"));
+                                        $interval = date_diff($applied_date, $current_date);
+                                        $totalDaysOfApplied = $interval->format('%R%a days');
+                                        
+                                        ?>
                                         <tr>
                                             <td><?php echo $cnt;?></td>
                                             <td><?php echo htmlentities($row['name']);?></td>
                                             <td><?php echo htmlentities($row['email']);?></td>
                                             <td><?php echo htmlentities($row['tracking_number']);?></td>
-                                            <td><?php echo htmlentities($row['village']);?></td>
-                                            <!-- <td><?php echo htmlentities($row['sem']);?></td> -->
+                                            <td><?php echo htmlentities($row['applied_date']);?></td>
+                                            <td><?php echo $totalDaysOfApplied;?></td>
                                             <!-- <td><?php echo htmlentities($row['edate']);?></td> -->
                                             <td>
-                                            <a href="print.php?id=<?php echo $row['tracking_number']?>" target="_blank">
-                                                <button class="btn btn-primary"><i class="fa fa-print "></i> Print</button></a>                               
+                                            <a href="view.php?id=<?php echo $row['tracking_number']?>" target="_blank">
+                                                <button class="btn btn-primary disabled"><i class="fa-regular fa-eye"></i> View</button></a>      
+                                            </td>
+                                            <td>
+                                            <a href="approve.php?id=<?php echo $row['tracking_number']?>" target="_blank">
+                                                <button class="btn btn-primary"><i class="fa-sharp fa-regular fa-circle-check "></i> Approve</button></a>
                                             </td>
                                         </tr>
                                     <?php $cnt++; } ?>

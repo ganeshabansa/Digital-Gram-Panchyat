@@ -1,3 +1,28 @@
+<?php 
+
+if ( isset($_POST['query']) && isset($_POST['phone']) ) {
+    
+    include("include/config.php");
+    error_reporting(0);
+    
+    $fname = $_POST['f_name'];
+    $lname = $_POST['l_name'];
+    $phone = $_POST['phone'];
+    $email = $_POST['email'];
+    $query = $_POST['query'];
+
+
+    $query = "insert into contact (first_name, last_name, contact_number, email, query) values ( '$fname', '$lname', '$phone', '$email', '$query')";
+
+    if ( mysqli_query( $con , $query ) ) {
+        echo '<script>alert("Query Submitted Successfully!")</script>';
+        // header('location:index.php');
+    } else {
+        echo '<script>alert("Something Went Wrong!")</script>';
+    }
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +35,7 @@
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 	<link rel="stylesheet" href="css/contact.css">
 	<link rel="stylesheet" href="css/header-footer.css">
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
 
     <!-- jQuery -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -37,9 +62,8 @@
                 <ul class="info">
                     <li>
                         <span><img src="./img/location.png"></span>
-                        <span>41106 ganagapur town<br>
-                            sambhaji nagar gangapur <br>
-                            41106</span>
+                        <span>Gram Panchyat Ganagapur, Taluka Ganagapur<br>
+                            Dist. Sambhaji Nagar, Maharashtra 411006 <br></span>
                     </li>
                     <li>
                         <span><img src="./img/email.png"></span>
@@ -47,38 +71,37 @@
                     </li>
                     <li>
                         <span><img src="./img/phn.png"></span>
-                        <span>310-386-1</span>
+                        <span>310-386-1000</span>
                     </li>
                 </ul>
             </div>
     
             <div class="Contactform">
                 <h2>send a message</h2>
+                <form method="post">
                 <div class="formBox">
                     <div class="inputBox w50">
-                        <input class="input_style" type="text" name="" placeholder="First Name" required>
+                        <input class="input_style" type="text" name="f_name" placeholder="First Name" required>
                     </div>
                     
                     <div class="inputBox w50">
-                        <input class="input_style" type="text" name="" placeholder="Second Name" required>
+                        <input class="input_style" type="text" name="l_name" placeholder="Second Name" required>
                     </div>
                     
                     <div class="inputBox w50">
-                        <input class="input_style" type="text" name="" placeholder="Email Address" required>
+                        <input class="input_style" type="text" name="email" placeholder="Email Address" required>
                     </div>
                     
                     <div class="inputBox w50">
-                        <input class="input_style" type="text" name="" placeholder="Phone Number" required>
+                        <input class="input_style" type="text" name="phone" placeholder="Phone Number" required>
                     </div>
                     
                     <div class="inputBox w100">
-                        <textarea name="" placeholder="Write Your Message here..." required></textarea>
+                        <textarea name="query" class="query_style" placeholder="Write Your Message here..." required></textarea>
                     </div>
-                    
-                    <div class="inputBox w100">
-                        <input class="input_style" type="Submit" value="send">
-                    </div>
+                    <input class="submit_button btn" type="submit" name="submit" value="send">
                 </div>
+                </form>
             </div>
         </div>
     </section>

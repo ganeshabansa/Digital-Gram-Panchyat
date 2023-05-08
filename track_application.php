@@ -18,18 +18,33 @@ if( strlen($_SESSION['login']) > 0 ) {
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
     <!-- CSS Links -->
-	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
 	<link rel="stylesheet" href="css/header-footer.css">
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<link rel="stylesheet" href="css/track-application.css">
+    <!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
 
     <!-- jQuery -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+    <!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
+
+    <!-- Bootstrap 4.3.1 CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <!-- FontAwesome 4.7.0 CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+      integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
     <style>
-    
-
- </style>
+    </style>
 
 	<title>Track Your Application</title>
 </head>
@@ -40,10 +55,8 @@ if( strlen($_SESSION['login']) > 0 ) {
     <?php include('include/header.php');?>
 
     <!-- Your Code start here -->
-    
-
   
-    <div class="trackingnumber">
+    <!-- <div class="trackingnumber">
         <h1 class="tracking-heading">Track the status of your Application</h1>
         <p class="tracking-subtitle">
             Enter the tracking number of your Aplication to track the status
@@ -53,12 +66,67 @@ if( strlen($_SESSION['login']) > 0 ) {
                 placeholder="Enter Your tracking number">
             <input type="submit" onclick="track(event)" value="Track" class="tracking-button">
         </form>
+    </div> -->
+
+    <div class="container px-5 px-md-4 py-5 mx-auto">
+      <div class="card">
+
+        <div class="row d-flex justify-content-between px-3 top">
+          <div class="d-flex">
+            <h5>
+              Name
+              <span class="text-primary font-weight-bold">Ganesha Bansa</span>
+            </h5>
+          </div>
+          <div class="d-flex flex-column text-sm-right">
+            <p class="mb-0">
+              Application Submitted on <span class="font-weight-bold">07 April 2023</span>
+            </p>
+            <p>
+              ID <span class="font-weight-bold">BGA67163473124234</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Add class "active" to progress -->
+        <div class="row d-flex justify-content-center">
+          <div class="col-12">
+            <ul id="progressbar" class="text-center">
+              <li class="active step0"></li>
+              <li class="active step0"></li>
+              <li class="active step0"></li>
+              <li class="step0"></li>
+            </ul>
+          </div>
+        </div>
+        <div class="row justify-content-between top">
+          <div class="row d-flex icon-content">
+            <img src="./img/CheckList.png" alt="" class="icon" />
+            <div class="d-flex flex-column">
+              <p class="font-weight-bold">Order <br />Desk 1</p>
+            </div>
+          </div>
+          <div class="row d-flex icon-content">
+            <img src="./img/Delivery.png" alt="" class="icon" />
+            <div class="d-flex flex-column">
+              <p class="font-weight-bold">Order <br />Desk 2</p>
+            </div>
+          </div>
+          <div class="row d-flex icon-content">
+            <img src="./img/Shipping.png" alt="" class="icon" />
+            <div class="d-flex flex-column">
+              <p class="font-weight-bold">Order <br />Desk 3</p>
+            </div>
+          </div>
+          <div class="row d-flex icon-content">
+            <img src="./img/Home.png" alt="" class="icon" />
+            <div class="d-flex flex-column">
+              <p class="font-weight-bold">Order <br />Approved/Rejected</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    
-    
- 
-        
-    
     
     <!-- Your Code end here -->
     
