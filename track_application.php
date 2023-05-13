@@ -20,93 +20,69 @@ if( strlen($_SESSION['login']) > 0 ) {
     <!-- CSS Links -->
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 	<link rel="stylesheet" href="css/header-footer.css">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link rel="stylesheet" href="css/track-application.css">
 
     <!-- jQuery -->
-    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
-    <!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
-
-    <!-- Bootstrap 4.3.1 CDN -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <!-- FontAwesome 4.7.0 CDN -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
-      integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <style>
-                
-        .container {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        gap: 4rem;
-        }
 
-        .box {
-        padding: 1rem;
-        border: 1px solid #ccc;
-        background-color: #f1f1f1;
-        }
-
-        .box.text {
-        font-size: 1.2rem;
-        font-weight: bold;
-        text-align: center;
-        background: #9ebffb;
-        }
-
-        .box.input {
-        width: 300px;
-        height: 40px;
-        font-size: 1rem;
-        padding: 0.5rem;
-        background: #9ebffb;
-        }
-
-        .box.button {
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        cursor: pointer;
-        font-size: 1.2rem;
-        padding: 0.5rem 1rem;
-        transition: all 0.2s ease-in-out;
-        }
-
-        .box.button:hover {
-        background-color: #0069d9;
-        }
 
     </style>
 
+
 	<title>Track Your Application</title>
 </head>
+     
+ 
 
 <body>
+
+
     <?php include('include/header.php');?>
 
     <!-- Your Code start here --> 
+    
+    <div class="container">
+          <div class="row">
+            <div class="col-md-12 my-5">
+              <h1 style="text-align:center;"> Online Application Status</h1>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 my-3">
+              <div class="bg-primary text-white p-3 rounded">
+                <h5 class="mb-3">Tracking number</h5>
+                <form>
+                  <div class="mb-3">
+                    
+                    <input type="text" class="form-control" placeholder="Tracking number.">
+                  </div>
+                  <button style="margin:0 40%;" type= "submit" class="btn btn-dark">Track Status</button>
+                </form>
+              </div>
+            </div>
+            </div>
+    
+   
+</div>
 
-    <div class="outer-">
-        <div class="container">
-            <div class="box text">Enter the Tracking number of your Application to track the Status</div>
-            <div class="box input"><input type="text" placeholder="Enter tracking number" style="width:100%;"></div>
-            <div class="box button">Submit</div>
-        </div>
-    </div>
+   
+    
+
+    
+    
+ 
+        
+    
     
     <!-- Your Code end here -->
     
 	<?php include('include/footer.php');?>
+
+	</script>
 
     <!-- javaScripts libraries-->
     <!-- <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script> -->
